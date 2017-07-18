@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Interests - Users</title>
+    {% load staticfiles %}
+     <!-- The line above tells Django to be ready to listen for static files -->
+     <link rel="stylesheet" href="{% static 'css/interests_7_17.css' %}" media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <h1>Users</h1>
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+    <table>
+        <tr>
+            <th>User Name</th>
+            <th>Action</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{user.username}}</td>
+            <td><a href="/show/{{user.id}}">View</a></td>
+        </tr>
+        {% endfor %}
+    </table><br>
+    <a href="/all_interests">All Interests</a><br>
+    <a href="/add">Enter Another User Interest</a><br>
+    <a href="/">LOG OUT</a>
+  </body>
+</html>
